@@ -42,8 +42,18 @@ On ReprapFirmware 1.17 and above the `M500` command will write out your system c
 
 If you'd prefer, you can update your base config with these values.  Update the M665 and M666 commands in `config.g` with the values seen in the output above.
 
-##fine-tuning with bed compensation
+## Adjusting for varying probe offset
+
+The probe offset likely changes slightly depending on where across the bed the printer is probing.  This can be caused by a number of factors, but it's relatively easy to compensate for.  Open bed.g and note the locations that your printer probes at.  At the end of each G30 command is an H0 operand.  That's the probe offset for that location.
+
+Home your printer and jog the head to each location.  You can do this quickly with the `G01` command:
+
+```G01 X100 Y100 Z1```
+
+The above command moves the nozzle to 1mm above the bed at x=100, y=100.  Now carefully jog down 0.05mm at a time until a piece of paper just drags under the nozzle, just like when calibrating the z-probe.  Note the Z value of where this happens.  This is the probe offset to use for the H value of this G30 line in bed.g.  Repeat for all locations save the file.
+
+Note: when moving from one X/Y location to another it'sa good idea to move up at least 1mm to avoid dragging the nozzle!
 
 ## Compensate for X/Y shrinkage
 
-Use `M579` to compensate for any growth or shrinkage in X and Y caused by innacuracies in the delta geometry.
+Use `M579` to compensate for any growth or shrinkage in X and Y caused by innacuracies in the delta geometry.  For example if your printer consistently prints parts 1% too small, use: `G579 X1.01 Y1.01`

@@ -21,7 +21,7 @@ Update the Z value in the G31 command in config.g to this number.  Restart the s
 
 ## Auto level
 
-Run the Auto Delta Calibration command `G32` or press the button in the interface.  You may want to run this a couple of times until the reported deviation settles down.
+Deploy the Z-probe and run the Auto Delta Calibration command `G32` or press the button in the interface.  You may want to run this a couple of times until the reported deviation settles down.
 
 Run the `M665` and `M665` commands and inspect the output:
 

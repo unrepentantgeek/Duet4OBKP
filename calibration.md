@@ -34,7 +34,7 @@ Endstop adjustments X-0.35 Y-0.95 Z1.30, tilt X0.00% Y0.00%
 
 These are the computed values for your delta geometry. You can either hard code these into your base configs, or save them to config-overrides.g with `M500`
 
-### `M500` and `M501`
+### M500 and M501
 
 On ReprapFirmware 1.17 and above the `M500` command will write out your system configuration to `/sys/config-overrides.g`.  Running the `M501` command will load that file and set those paramters.  To simplify recalibration you can somply add the `M501` command to the end of your `config.g` file.  Any time you want to save your current settings just run `M500` and they will be stored.
 

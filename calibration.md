@@ -10,7 +10,7 @@ https://duet3d.com/wiki/Tuning_the_heater_temperature_control
 
 ```M303 H1 S220```
 
-Don't walk away!  Keep an eye on the temperature until the heater is turned off.
+Don't walk away!  Keep an eye on the temperature until the heater is turned off.  Save your settings with the `M307` command.
 
 ## Calibrate Z probe
 Home all axes and then drive the end effector down to just touch the bed.  If you hit Z=0 before you reach the bed use `G92 Z10` to reset the Z axis and continue to move down with the jog controls.  Use a piece of paper to ensure that you are *just* touching the bed.  The paper should drag under the nozzle, but not be pinned down to the bed.

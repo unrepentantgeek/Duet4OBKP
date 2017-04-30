@@ -43,3 +43,7 @@ On ReprapFirmware 1.17 and above the `M500` command will write out your system c
 If you'd prefer, you can update your base config with these values.  Update the M665 and M666 commands in `config.g` with the values seen in the output above.
 
 ##fine-tuning with bed compensation
+
+## Compensate for X/Y shrinkage
+
+Use `M579` to compensate for any growth or shrinkage in X and Y caused by innacuracies in the delta geometry.

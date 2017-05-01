@@ -54,6 +54,22 @@ The above command moves the nozzle to 1mm above the bed at x=100, y=100.  Now ca
 
 Note: when moving from one X/Y location to another it'sa good idea to move up at least 1mm to avoid dragging the nozzle!
 
+# First print
+
+Print the [calibration_frame.stl](./calibration_frame.stl).  If you have set any slicer tweaks such as 'Inset surface' or 'Horizontal size compensation' you should disable them for now.  Once the print is complete, mark the front top with a marker for reference, and remove it from the print bed.
+
+Measure the thickness at several points around the perimiter.  It should be 5mm thick.  Otherwise:
+
+  * Consistently thin or thick
+  
+  Your probe offset is incorrect.  If the part is too thin, *reduce* the probe offset by how much thinner than 5mm the part is.  Then repeat the bed probe and save the values.
+  
+  * Inconsistent thickness
+  
+    * Doublecheck that you got the sign right on the H values when fine tuning probe offset
+    * Make sure that your printer doesn't have any loose screws
+
+
 ## Compensate for X/Y shrinkage
 
 Use `M579` to compensate for any growth or shrinkage in X and Y caused by innacuracies in the delta geometry.  For example if your printer consistently prints parts 1% too small, use: `G579 X1.01 Y1.01`

@@ -23,7 +23,7 @@ Update the Z value in the G31 command in config.g to this number.  Restart the s
 
 Deploy the Z-probe and run the Auto Delta Calibration command `G32` or press the button in the interface.  You may want to run this a couple of times until the reported deviation settles down.
 
-Run the `M665` and `M665` commands and inspect the output:
+Run the `M665` and `M666` commands and inspect the output:
 
 ```
 M665
@@ -36,7 +36,9 @@ These are the computed values for your delta geometry. You can either hard code 
 
 ### M500 and M501
 
-On ReprapFirmware 1.17 and above the `M500` command will write out your system configuration to `/sys/config-overrides.g`.  Running the `M501` command will load that file and set those paramters.  To simplify recalibration you can somply add the `M501` command to the end of your `config.g` file.  Any time you want to save your current settings just run `M500` and they will be stored.
+* Note: Your Duet must be running ReprapFirmware 1.17 or higher for M500/M501 support
+
+The `M500` command will write out your system configuration to `/sys/config-overrides.g`.  Running the `M501` command will load that file and set those parameters.  To simplify recalibration you can add the `M501` command to the end of your `config.g` file.  Any time you want to save your current settings run `M500` and they will be stored.
 
 ### Updating your configs
 

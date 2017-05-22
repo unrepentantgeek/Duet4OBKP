@@ -16,7 +16,7 @@ The PanelDue controller and touchscreen give you front panel monitoring and acce
   * PanelDue [US](https://www.filastruder.com/collections/electronics/products/paneldue) [EU](https://www.duet3d.com/DuetAddons/PanelDue)
 
 ## Hotend
-The E3D hotend is one of the best, and the E3D lite is an amazing value.  With a couple of printed parts the end effector can be upgraded to fit either one.  Just make sure that you get the 24v heater to match the Kossel Pro's power supply.  You will also need to obtain another 5v 30mm fan (4.3CFM) as the Kossel Pro end effector cannot handle 24v.
+The E3D hotend is one of the best, and the E3D lite is an amazing value.  With a couple of printed parts the end effector can be upgraded to fit either one.  Just make sure that you get the 24v heater to match the Kossel Pro's power supply.  You will also need to obtain another 5v 30mm fan (4.3CFM) as the Kossel Pro end effector PCB cannot handle 24v.
   * E3D Lite V6 (24v bowden) [US](https://www.filastruder.com/products/lite6?variant=1283850628) [EU](http://e3d-online.com/Lite6-1.75mm-Bowden-24v)
   * E3D V6 (24v bowden) [US](https://www.filastruder.com/products/all-metal-e3d-v6-hotend?variant=1236046392) [EU](http://e3d-online.com/E3D-v6/Full-Kit/175-universal-bowden-full-kit)
   * 30mm 5v fan (4.3CFM)
@@ -30,19 +30,8 @@ You can mount a Raspberry Pi Zero W in the offical case with a camera and cheap 
 This is an inexpensive and highly recommended upgrade for improved bed adhesion.
   * [Gizmo Dorks PEI Sheet](https://www.amazon.com/Gizmo-Dorks-Printing-Surface-Adhesive/dp/B01KGDTNQ2)
 
-## Printed parts
-
-  * Duet holder
-  * Duet cover
-  * Bulkhead
-  * End effector top
-  * Cable clamp
-  * Display enclosure (optional)
-
-## Assembly
-
-## Configuration
-
-copy base configs to card
-
-## Configuration
+## The process
+* [Preparation](Preparation.md)
+* [Assembly](Assembly.md)
+* [Configuration](Configuration.md)
+* [Calibration](Calibration.md)

@@ -24,7 +24,7 @@ M569 P3 S0				; Drive 3 goes backwards
 M569 P4 S0				; Drive 4 goes backwards
 M574 X2 Y2 Z2 S1			; set endstop configuration (all endstops at high end, active high)
 ;*** The homed height is deliberately set too high in the following - you will adjust it during calibration
-M665 L300.000 R153 H280 B135.0 X0 Y0 Z0	; set delta radius, diagonal rod length, printable radius and homed height
+M665 L300.000 R153 H270 B135.0 X0 Y0 Z0	; set delta radius, diagonal rod length, printable radius and homed height
 M666 X0 Y0 Z0 A0.00 B0.00		; put your endstop adjustments here, or let auto calibration find them
 M350 X16 Y16 E16 I1    			; Set 16x microstepping with interpolation
 M92 X80 Y80 Z80				; Set axis steps/mm

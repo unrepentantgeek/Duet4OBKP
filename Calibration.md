@@ -56,7 +56,7 @@ The above example command moves the nozzle to 1mm above the bed at the specified
 
 Note: when moving from one X/Y location to another, it's a good idea to move up at least 1mm to avoid dragging the nozzle!
 
-Hint: You can create your own macros for "Move Up 0.05mm" and "Move Down 0.05mm" by using the following example gcode:
+Hint: The web interface only has buttons for .1mm moves but you can create your own macros for "Move Up 0.05mm" and "Move Down 0.05mm" by using the following example gcode:
 
 ```
 G91             ; change to relative moves

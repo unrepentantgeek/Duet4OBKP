@@ -58,7 +58,7 @@ Note: when moving from one X/Y location to another, it's a good idea to move up 
 
 # First print
 
-Print the [calibration_frame.stl](./calibration_frame.stl).  If you have set any slicer tweaks such as 'Inset surface' or 'Horizontal size compensation' you should disable them for now.  Once the print is complete, mark the front top with a marker for reference, and remove it from the print bed.
+Print the [Calibration Square.stl](stl/Calibration%20Square.stl).  If you have set any slicer tweaks such as 'Inset surface' or 'Horizontal size compensation' you should disable them for now.  Once the print is complete, mark the front top with a marker for reference, and remove it from the print bed.
 
 Measure the thickness at several points around the perimiter.  It should be 5mm thick.  Otherwise:
 

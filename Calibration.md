@@ -52,9 +52,17 @@ Home your printer and jog the head to each location listed in `bed.g`.  You can 
 
 ```G01 X45.47 Y26.25 Z1```
 
-The above command moves the nozzle to 1mm above the bed at the specified X,Y coordinates.  Carefully jog down 0.05mm at a time until a piece of paper just drags under the nozzle, just like when calibrating the z-probe.  Note the Z value of where this happens.  This is the probe offset to use for the H value of this G30 line in `bed.g`.  Repeat for all locations and save the file.
+The above example command moves the nozzle to 1mm above the bed at the specified X,Y coordinates.  Carefully jog down 0.05mm at a time until a piece of paper just drags under the nozzle, just like when calibrating the z-probe.  Note the Z value of where this happens.  This is the probe offset to use for the H value of this G30 line in `bed.g`.  Repeat for all locations and save the file.
 
 Note: when moving from one X/Y location to another, it's a good idea to move up at least 1mm to avoid dragging the nozzle!
+
+Hint: You can create your own macros for "Move Up 0.05mm" and "Move Down 0.05mm" by using the following example gcode:
+
+```
+G91             ; change to relative moves
+G1 Z0.05 F2000  ; or Z-0.05 to move down
+G90             ; restore absolute moves
+```
 
 # First print
 

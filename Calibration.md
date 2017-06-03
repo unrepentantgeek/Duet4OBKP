@@ -17,7 +17,7 @@ Home all axes and then drive the end effector down to just touch the bed.  If yo
 
 Once you are just touching the bed run `G92 Z0` to zero the Z axis.  Then move up 20mm, manually deploy the Z probe and run `G30 S-1`.  The end effector will move down slowly until the probe triggers.  Your probe offset will be printed to the gcode console.  It is recommended that you repeat this process several times until the value settles down.
 
-Update the Z value in the G31 command in config.g to this number.  Restart the system to reload the config `M999`
+Update the Z value in the G31 command in `config.g` to this number.  Restart the system to reload the config `M999`
 
 ## Auto level
 
@@ -32,7 +32,7 @@ M666
 Endstop adjustments X-0.35 Y-0.95 Z1.30, tilt X0.00% Y0.00%
 ```
 
-These are the computed values for your delta geometry. You can either hard code these into your base configs, or save them to config-overrides.g with `M500`
+These are the computed values for your delta geometry. You can either hard code these into your base configs, or save them to `config-overrides.g` with `M500`
 
 ### M500 and M501
 
@@ -46,13 +46,13 @@ If you'd prefer, you can update your base config with these values.  Update the 
 
 ## Adjusting for varying probe offset
 
-The probe offset likely changes slightly depending on where across the bed the printer is probing.  This can be caused by a number of factors, but it's relatively easy to compensate for.  Open bed.g and note the locations that your printer probes at.  At the end of each G30 command is an H0 operand.  That's the probe offset for that location.
+The probe offset likely changes slightly depending on where across the bed the printer is probing.  This can be caused by a number of factors, but it's relatively easy to compensate for.  Open `bed.g` and note the locations that your printer probes at.  At the end of each G30 command is an H0 operand.  That's the probe offset for that location.
 
-Home your printer and jog the head to each location listed in bed.g.  You can do this quickly with the `G01` command:
+Home your printer and jog the head to each location listed in `bed.g`.  You can do this quickly with the `G01` command:
 
 ```G01 X45.47 Y26.25 Z1```
 
-The above command moves the nozzle to 1mm above the bed at the specified X,Y coordinates.  Carefully jog down 0.05mm at a time until a piece of paper just drags under the nozzle, just like when calibrating the z-probe.  Note the Z value of where this happens.  This is the probe offset to use for the H value of this G30 line in bed.g.  Repeat for all locations and save the file.
+The above command moves the nozzle to 1mm above the bed at the specified X,Y coordinates.  Carefully jog down 0.05mm at a time until a piece of paper just drags under the nozzle, just like when calibrating the z-probe.  Note the Z value of where this happens.  This is the probe offset to use for the H value of this G30 line in `bed.g`.  Repeat for all locations and save the file.
 
 Note: when moving from one X/Y location to another, it's a good idea to move up at least 1mm to avoid dragging the nozzle!
 

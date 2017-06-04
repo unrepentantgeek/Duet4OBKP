@@ -13,11 +13,12 @@ https://duet3d.com/wiki/Tuning_the_heater_temperature_control
 Don't walk away!  Keep an eye on the temperature until the heater is turned off.  Save your settings with the `M307` command.
 
 ## Calibrate Z probe
+
 Home all axes and then drive the end effector down to just touch the bed.  If you hit Z=0 before you reach the bed use `G92 Z10` to reset the Z axis and continue to move down with the jog controls.  Use a piece of paper to ensure that you are *just* touching the bed.  The paper should drag under the nozzle, but not be pinned down to the bed.
 
 Once you are just touching the bed run `G92 Z0` to zero the Z axis.  Then move up 20mm, manually deploy the Z probe and run `G30 S-1`.  The end effector will move down slowly until the probe triggers.  Your probe offset will be printed to the gcode console.  It is recommended that you repeat this process several times until the value settles down.
 
-Update the Z value in the G31 command in config.g to this number.  Restart the system to reload the config `M999`
+Update the Z value in the G31 command in `config.g` to this number.  Restart the system to reload the config `M999`
 
 ## Auto level
 
@@ -32,7 +33,7 @@ M666
 Endstop adjustments X-0.35 Y-0.95 Z1.30, tilt X0.00% Y0.00%
 ```
 
-These are the computed values for your delta geometry. You can either hard code these into your base configs, or save them to config-overrides.g with `M500`
+These are the computed values for your delta geometry. You can either hard code these into your base configs, or save them to `config-overrides.g` with `M500`
 
 ### M500 and M501
 
@@ -46,19 +47,34 @@ If you'd prefer, you can update your base config with these values.  Update the 
 
 ## Adjusting for varying probe offset
 
-The probe offset likely changes slightly depending on where across the bed the printer is probing.  This can be caused by a number of factors, but it's relatively easy to compensate for.  Open bed.g and note the locations that your printer probes at.  At the end of each G30 command is an H0 operand.  That's the probe offset for that location.
+The probe offset likely changes slightly depending on where across the bed the printer is probing.  This can be caused by a number of factors, but it's relatively easy to compensate for.  Open `bed.g` and note the locations that your printer probes at.  At the end of each G30 command is an H0 operand.  That's the probe offset for that location.
 
-Home your printer and jog the head to each location.  You can do this quickly with the `G01` command:
+First, home your printer and then use the `M561` command to cancel any existing bed compensation.  Next, jog the head to each location listed in `bed.g` and measure it according to the instructions below.  You can do this quickly with the `G01` command:
 
-```G01 X100 Y100 Z1```
+```G01 X45.47 Y26.25 Z1```
 
-The above command moves the nozzle to 1mm above the bed at x=100, y=100.  Now carefully jog down 0.05mm at a time until a piece of paper just drags under the nozzle, just like when calibrating the z-probe.  Note the Z value of where this happens.  This is the probe offset to use for the H value of this G30 line in bed.g.  Repeat for all locations save the file.
+The above example command moves the nozzle to 1mm above the bed at the specified X,Y coordinates.  Carefully jog down 0.05mm at a time until a piece of paper just drags under the nozzle, just like when calibrating the z-probe.  Note the Z value of where this happens.  Invert this probe offset value and use it for the H value of this G30 line in `bed.g`.  Repeat for all locations and update/save your `bed.g` file.  For example:
 
-Note: when moving from one X/Y location to another it'sa good idea to move up at least 1mm to avoid dragging the nozzle!
+```
+; If you measure a Z value of 0.05 for this line:
+G30 P1  X45.47 Y26.25 Z-99999 H0
+; It should be updated to look something like this:
+G30 P1  X45.47 Y26.25 Z-99999 H-0.05
+```
+
+Note: when moving from one X/Y location to another, it's a good idea to move up at least 1mm to avoid dragging the nozzle!
+
+Hint: The web interface only has buttons for .1mm moves but you can create your own macros for "Move Up 0.05mm" and "Move Down 0.05mm" by using the following example gcode:
+
+```
+G91             ; change to relative moves
+G1 Z0.05 F2000  ; or Z-0.05 to move down
+G90             ; restore absolute moves
+```
 
 # First print
 
-Print the [calibration_frame.stl](./calibration_frame.stl).  If you have set any slicer tweaks such as 'Inset surface' or 'Horizontal size compensation' you should disable them for now.  Once the print is complete, mark the front top with a marker for reference, and remove it from the print bed.
+Print the [Calibration Square.stl](stl/Calibration%20Square.stl).  If you have set any slicer tweaks such as 'Inset surface' or 'Horizontal size compensation' you should disable them for now.  Once the print is complete, mark the front top with a marker for reference, and remove it from the print bed.
 
 Measure the thickness at several points around the perimiter.  It should be 5mm thick.  Otherwise:
 

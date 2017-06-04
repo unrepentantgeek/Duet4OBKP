@@ -13,6 +13,7 @@ https://duet3d.com/wiki/Tuning_the_heater_temperature_control
 Don't walk away!  Keep an eye on the temperature until the heater is turned off.  Save your settings with the `M307` command.
 
 ## Calibrate Z probe
+
 Home all axes and then drive the end effector down to just touch the bed.  If you hit Z=0 before you reach the bed use `G92 Z10` to reset the Z axis and continue to move down with the jog controls.  Use a piece of paper to ensure that you are *just* touching the bed.  The paper should drag under the nozzle, but not be pinned down to the bed.
 
 Once you are just touching the bed run `G92 Z0` to zero the Z axis.  Then move up 20mm, manually deploy the Z probe and run `G30 S-1`.  The end effector will move down slowly until the probe triggers.  Your probe offset will be printed to the gcode console.  It is recommended that you repeat this process several times until the value settles down.
@@ -48,11 +49,18 @@ If you'd prefer, you can update your base config with these values.  Update the 
 
 The probe offset likely changes slightly depending on where across the bed the printer is probing.  This can be caused by a number of factors, but it's relatively easy to compensate for.  Open `bed.g` and note the locations that your printer probes at.  At the end of each G30 command is an H0 operand.  That's the probe offset for that location.
 
-Home your printer and jog the head to each location listed in `bed.g`.  You can do this quickly with the `G01` command:
+First, home your printer and then use the `M561` command to cancel any existing bed compensation.  Next, jog the head to each location listed in `bed.g` and measure it according to the instructions below.  You can do this quickly with the `G01` command:
 
 ```G01 X45.47 Y26.25 Z1```
 
-The above example command moves the nozzle to 1mm above the bed at the specified X,Y coordinates.  Carefully jog down 0.05mm at a time until a piece of paper just drags under the nozzle, just like when calibrating the z-probe.  Note the Z value of where this happens.  This is the probe offset to use for the H value of this G30 line in `bed.g`.  Repeat for all locations and save the file.
+The above example command moves the nozzle to 1mm above the bed at the specified X,Y coordinates.  Carefully jog down 0.05mm at a time until a piece of paper just drags under the nozzle, just like when calibrating the z-probe.  Note the Z value of where this happens.  Invert this probe offset value and use it for the H value of this G30 line in `bed.g`.  Repeat for all locations and update/save your `bed.g` file.  For example:
+
+```
+; If you measure a Z value of 0.05 for this line:
+G30 P1  X45.47 Y26.25 Z-99999 H0
+; It should be updated to look something like this:
+G30 P1  X45.47 Y26.25 Z-99999 H-0.05
+```
 
 Note: when moving from one X/Y location to another, it's a good idea to move up at least 1mm to avoid dragging the nozzle!
 

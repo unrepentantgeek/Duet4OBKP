@@ -1,10 +1,11 @@
 ## Tools
-The tools that came with your Kossel Pro will get you most of the way.  While you can do without then, it's recommended that you buy or borrow crimpers for the connectors and ferrules provided with the Duet board.
+The tools that came with your Kossel Pro will get you most of the way.  You'll also need to buy or borrow some specialized tools for terminating the wires for the new connections:
 
 - [Ferrule Crimper with Ferrules](https://www.amazon.com/gp/product/B01K160CC8/)
 - [Ratcheting crimp pliers](https://www.adafruit.com/product/1213)
 - Wire stripper
-- M3 Tap
+
+A 2.5mm drill and an M3 tap are also recommended for forming threads in the plastic parts.
 
 ## Print the parts
 
@@ -38,4 +39,5 @@ Install the Duet board onto it's mounting bracket with some M3 bolts and nuts.  
 
 While you can just plug the wires into the Duet it is recommened that you cut off the old connectors and crimp on the connectors included with the Duet.
 
+You must re-terminate one end of the end effector umbilical.  The connections on the Duet are sufficiently different that you can't just plug in.  See the image below for the correct pin connections.
 ![Umbilical wiring](img/duet_umbilical_wiring.jpg)

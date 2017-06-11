@@ -3,7 +3,7 @@ The tools that came with your Kossel Pro will get you most of the way.  You'll a
 
 - [Ferrule Crimper with Ferrules](https://www.amazon.com/gp/product/B01K160CC8/)
 - [Ratcheting crimp pliers](https://www.adafruit.com/product/1213)
-- Wire stripper
+- [Wire stripper](https://www.amazon.com/IRWIN-VISE-GRIP-Self-Adjusting-Stripper-2078300)
 
 A 2.5mm drill and an M3 tap are also recommended for forming threads in the plastic parts.
 

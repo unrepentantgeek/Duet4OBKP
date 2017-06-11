@@ -19,13 +19,12 @@ Disassembly:
   Remove end effector
   Remove delta arms
   Remove print glass & heated bed
+  Remove bed clamp assemblies
   Remove power inlet/switch bulkhead and wires to the PSU
   Disconnect all wires and remove Brainwave Pro mainboard
   Remove extruder cold end assembly
 
-If you didn't add the extra m3 nuts to the lower frame rails as recommended in the assembly guide, then you'll need to go back
-now and add them.  This is an exercise left to the reader, but turning the printer upside down and removing one rail at a time
-can be helpful.
+If you didn't add the extra m3 nuts to the lower frame rails as recommended in the assembly guide, then you'll need to go back now and add them.  This is an exercise left to the reader, but turning the printer upside down and removing one rail at a time can be helpful.
 
 ## Install Duet
 
@@ -41,3 +40,12 @@ While you can just plug the wires into the Duet it is recommened that you cut of
 
 You must re-terminate one end of the end effector umbilical.  The connections on the Duet are sufficiently different that you can't just plug in.  See the image below for the correct pin connections.
 ![Umbilical wiring](img/duet_umbilical_wiring.jpg)
+
+## Power bulkhead
+If you are going to install the USB extension cable then migrate the power inlet and switch to the new power bulkhead.  The remaining holes are for the USB extension.  Install it with two M3 screws or bolts.
+
+The newly assembled bulkhead is installed on the lower rails between the Z vertex and the PSU air outlet.  This is different from the original layout.
+![combination bulkhead](img/combination_bulkhead.jpg)
+
+
+## End effector

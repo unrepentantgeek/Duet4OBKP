@@ -45,7 +45,7 @@ First, home your printer and then use the `M561` command to cancel any existing 
 
 ```G01 X45.47 Y26.25 Z1```
 
-The above example command moves the nozzle to 1mm above the bed at the specified X,Y coordinates.  Carefully jog down 0.05mm at a time until a piece of paper just drags under the nozzle, just like when calibrating the z-probe.  Note the Z value of where this happens.  Invert this probe offset value and use it for the H value of this G30 line in `bed.g`.  Repeat for all locations and update/save your `bed.g` file.  For example:
+The above example command moves the nozzle to 1mm above the bed at the specified X,Y coordinates.  Carefully jog down 0.05mm at a time until a piece of paper just drags under the nozzle, just like when calibrating the z-probe.  Note the Z value of where this happens.  **Invert** this probe offset value and use it for the H value of this G30 line in `bed.g`.  Repeat for all locations and update/save your `bed.g` file.  For example:
 
 ```
 ; If you measure a Z value of 0.05 for this line:
@@ -56,11 +56,11 @@ G30 P1  X45.47 Y26.25 Z-99999 H-0.05
 
 Note: when moving from one X/Y location to another, it's a good idea to move up at least 1mm to avoid dragging the nozzle!
 
-Hint: The web interface only has buttons for .1mm moves but you can create your own macros for "Move Up 0.05mm" and "Move Down 0.05mm" by using the following example gcode:
+Hint: By default the web interface has buttons for .1mm moves but you can change this to 0.05mm by checking the 'Half Z Movements' checkbox under the 'User Interface' tab in the system settings.  If you'd like even more fine grained control you can create your own macros for "Move Up 0.01mm" and "Move Down 0.01mm" by using the following example gcode:
 
 ```
 G91             ; change to relative moves
-G1 Z0.05 F2000  ; or Z-0.05 to move down
+G1 Z0.01 F2000  ; or Z-0.01 to move down
 G90             ; restore absolute moves
 ```
 

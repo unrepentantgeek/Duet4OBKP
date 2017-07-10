@@ -8,9 +8,9 @@ The thermistor is configured with the `M305` command.  Make sure to use the righ
 
 https://duet3d.com/wiki/Tuning_the_heater_temperature_control
 
-```M303 H1 S220```
+```M303 H1 S220 P1```
 
-Don't walk away!  Keep an eye on the temperature until the heater is turned off.  Save your settings with the `M307` command.
+Don't walk away!  Keep an eye on the temperature until the heater is turned off.  Save your settings with the `M307` command.  If the firmware reports that the heater is overpowered, then wait for the heater to cool and re-run the `M303` command above with a lower value for P i.e.: `M303 H1 S220 P0.5`
 
 ## Calibrate Z probe
 

@@ -14,8 +14,8 @@ M83                                 	; ...but relative extruder moves
 M569 P0 S0				; Drive 0 goes backwards
 M569 P1 S0				; Drive 1 goes backwards
 M569 P2 S0				; Drive 2 goes backwards
-M569 P3 S0				; Drive 3 goes backwards
-M569 P4 S0				; Drive 4 goes backwards
+M569 P3 S1				; Drive 3 goes forwards
+M569 P4 S1				; Drive 4 goes forwards
 M574 X2 Y2 Z2 S1			; set endstop configuration (all endstops at high end, active high)
 ;*** The homed height (H270) is deliberately set too high in the following line.
 ;*** You will adjust it during calibration (higher number is closer to the bed).

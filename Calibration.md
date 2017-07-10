@@ -2,15 +2,15 @@
 
 ## Calibrate PID
 
-The thermistor is configured with the `M305` command.  Make sure to use the right value for B and C for your setup.  For the E3D v6 and v6 lite, the correct setting for extruder 0 is:
+The thermistor is configured with the `M305` command.  Make sure to use the right value for B and C for your setup.  For the E3D v6 and v6 lite, the correct setting for extruder 0 is `M305 P1 T100000 B4725 R4700 C7.06e-8 H30 L0`
 
-```M305 P1 T100000 B4725 R4700 C7.06e-8 H30 L0```
-
-https://duet3d.com/wiki/Tuning_the_heater_temperature_control
+To start a PID tune, run the following command on the gcode console:
 
 ```M303 H1 S220 P1```
 
 Don't walk away!  Keep an eye on the temperature until the heater is turned off.  Save your settings with the `M307` command.  If the firmware reports that the heater is overpowered, then wait for the heater to cool and re-run the `M303` command above with a lower value for P i.e.: `M303 H1 S220 P0.5`
+
+For more information on heater control and tuning see https://duet3d.com/wiki/Tuning_the_heater_temperature_control
 
 ## Calibrate Z probe
 

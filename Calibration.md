@@ -8,7 +8,9 @@ To start a PID tune, run the following command on the gcode console:
 
 ```M303 H1 S220 P1```
 
-Don't walk away!  Keep an eye on the temperature until the heater is turned off.  Save your settings with the `M307` command.  If the firmware reports that the heater is overpowered, then wait for the heater to cool and re-run the `M303` command above with a lower value for P i.e.: `M303 H1 S220 P0.5`
+**Don't walk away!**  Keep an eye on the temperature until the heater has turned off.  If the firmware reports that the heater is overpowered, then wait for the heater to cool and re-run the `M303` command above with a lower value for P i.e.: `M303 H1 S220 P0.5`
+
+Save the PID tuning values with `M500`
 
 For more information on heater control and tuning see https://duet3d.com/wiki/Tuning_the_heater_temperature_control
 
@@ -18,11 +20,11 @@ Home all axes and then drive the end effector down to just touch the bed.  If yo
 
 Once you are just touching the bed run `G92 Z0` to zero the Z axis.  Then move up 20mm, manually deploy the Z probe and run `G30 S-1`.  The end effector will move down slowly until the probe triggers.  Your probe offset will be printed to the gcode console.  It is recommended that you repeat this process several times until the value settles down.
 
-Update the Z value in the G31 command in `config.g` to this number.  Restart the system to reload the config `M999`
+Update the probe offset with the G31 command.  For example `G31 Z12.345`  Then run `M500` to store the config.
 
 ## Auto level
 
-Deploy the Z-probe and run the Auto Delta Calibration command `G32` or press the button in the interface.  You may want to run this a couple of times until the reported deviation settles down.  If the printer reports untriggered probe points then increase the `H` parameter of the `M665` command in config-override.g by 5 or 10mm.
+Deploy the Z-probe and run the Auto Delta Calibration command `G32` or press the button in the interface.  You may want to run this a couple of times until the reported deviation settles down.  If the printer reports untriggered probe points then increase the `H` parameter of the `M665` command in config-override.g by 5 at a time until all probe points trigger.
 
 Run the `M665` and `M666` commands and inspect the output:
 
@@ -33,7 +35,7 @@ M666
 Endstop adjustments X-0.35 Y-0.95 Z1.30, tilt X0.00% Y0.00%
 ```
 
-These are the computed values for your delta geometry. You can either hard code these into your base configs, or save them to `config-overrides.g` with `M500`
+These are the computed values for your delta geometry.  Save them by issuing an `M500` command.  You might also want to copy these values to local.g so that you have a sane base config to go back to should you incorrectly overwrite config-overrides.g.
 
 ## Adjusting for varying probe offset
 

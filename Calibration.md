@@ -22,7 +22,7 @@ Update the Z value in the G31 command in `config.g` to this number.  Restart the
 
 ## Auto level
 
-Deploy the Z-probe and run the Auto Delta Calibration command `G32` or press the button in the interface.  You may want to run this a couple of times until the reported deviation settles down.
+Deploy the Z-probe and run the Auto Delta Calibration command `G32` or press the button in the interface.  You may want to run this a couple of times until the reported deviation settles down.  If the printer reports untriggered probe points then increase the `H` parameter of the `M665` command in config-override.g by 5 or 10mm.
 
 Run the `M665` and `M666` commands and inspect the output:
 

@@ -61,10 +61,6 @@ M208 S1 Z-0.2				; set minimum Z
 ;
 T0					; select first hot end
 
-; Compensate for delta inaccuracies
-; Uncomment the following line and adjust the X and Y values to grow/shrink in the X/Y axes
-;M579 X1.005 Y1.005 ; compensate for delta geometry, grow ~0.5% in X and Y
-
 M98 Plocal.g
 
 ; load values from config-overrides.g at boot

@@ -35,16 +35,6 @@ Endstop adjustments X-0.35 Y-0.95 Z1.30, tilt X0.00% Y0.00%
 
 These are the computed values for your delta geometry. You can either hard code these into your base configs, or save them to `config-overrides.g` with `M500`
 
-### M500 and M501
-
-* Note: Your Duet must be running ReprapFirmware 1.17 or higher for M500/M501 support
-
-The `M500` command will write out your system configuration to `/sys/config-overrides.g`.  Running the `M501` command will load that file and set those parameters.  To simplify recalibration you can add the `M501` command to the end of your `config.g` file.  Any time you want to save your current settings run `M500` and they will be stored.
-
-### Updating your configs
-
-If you'd prefer, you can update your base config with these values.  Update the M665 and M666 commands in `config.g` with the values seen in the output above.
-
 ## Adjusting for varying probe offset
 
 The probe offset likely changes slightly depending on where across the bed the printer is probing.  This can be caused by a number of factors, but it's relatively easy to compensate for.  Open `bed.g` and note the locations that your printer probes at.  At the end of each G30 command is an H0 operand.  That's the probe offset for that location.

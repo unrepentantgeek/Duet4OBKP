@@ -79,6 +79,13 @@ Measure the thickness at several points around the perimiter.  It should be 5mm 
     * Doublecheck that you got the sign right on the H values when fine tuning probe offset
     * Make sure that your printer doesn't have any loose screws
 
+## Compensate for too thin/thick a first layer
+
+When you start your first print, watch how the first layer is sticking.  You can use the baby step buttons on the web or LCD interface to nudge the nozzle up and down by 0.5mm.  If you find that you need to adjust for the first layer, note the value of the baby step.  Go into config-overrides.g and **subtract** that value from the Z Probe offset (G31 command).
+
+For example if your printer requires to be baby stepped up by 0.15mm and your G31 Z value is 12.80, change the Z value to 12.65.
+
+Save the config-override.g file, reset the printer and re-run the bed levelling command.  Try a print to test your new setting.  If it's good, run `M500` to save your new bed level.
 
 ## Compensate for X/Y shrinkage
 

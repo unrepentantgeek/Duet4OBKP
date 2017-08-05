@@ -6,19 +6,11 @@ Power down your printer and remove the micro-SD card from the Duet and connect i
 
 ## Online
 
-Follow the [directions to get your Duet online](https://duet3d.com/wiki/Getting_connected_to_the_Duet_WiFi) and use the web interface (setM550 PKosselPro		; Machine name and Netbios name (can be anything you like)
-M551 Preprap                        	; Machine password (used for FTP)
-;*** If you have more than one Duet on your network, they must all have different MAC addresses, so change the last digits
-M540 P0xBE:0xEF:0xDE:0xAD:0xFE:0xED 	; MAC Address
-;*** Wifi Networking
-; Uncomment this line to enable WiFi once the Duet is set up on your wifi network.
-; M552 S1
-
-tings tab) to update the contents of the corresponding files in [sys](sys).
+Follow the [directions to get your Duet online](https://duet3d.com/wiki/Getting_connected_to_the_Duet_WiFi) and use the web interface (settings tab) to update the contents of the corresponding files in [sys](sys).
 
 ### M500 and M501
 
-* Note: Your Duet must be running ReprapFirmware 1.17 or higher for M500/M501 support
+* Note: Your Duet must be running ReprapFirmware 1.17 or higher for M500/M501 support.  [How to check your firmware version](https://duet3d.com/wiki/Checking_the_firmware_versions_and_updating_the_firmware)
 
 The `M500` command will write out your system calibration to `/sys/config-overrides.g`.  Running the `M501` command will load that file and set those parameters.  To simplify recalibration we have added the `M501` command to the end of the `config.g` file.  Any time you want to save your current settings run `M500` and they will be stored for loading at the next reset.  The settings stored by `M500` are:
 

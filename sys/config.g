@@ -2,13 +2,6 @@
 
 ; Communication and general
 M111 S0                             	; Debug off
-M550 PKosselPro		; Machine name and Netbios name (can be anything you like)
-M551 Preprap                        	; Machine password (used for FTP)
-;*** If you have more than one Duet on your network, they must all have different MAC addresses, so change the last digits
-M540 P0xBE:0xEF:0xDE:0xAD:0xFE:0xED 	; MAC Address
-;*** Wifi Networking
-; Uncomment this line to enable WiFi once the Duet is set up on your wifi network.
-; M552 S1
 
 M555 P2                           	; Set output to look like Marlin
 M575 P1 B57600 S1			; Comms parameters for PanelDue
@@ -21,8 +14,8 @@ M83                                 	; ...but relative extruder moves
 M569 P0 S0				; Drive 0 goes backwards
 M569 P1 S0				; Drive 1 goes backwards
 M569 P2 S0				; Drive 2 goes backwards
-M569 P3 S0				; Drive 3 goes backwards
-M569 P4 S0				; Drive 4 goes backwards
+M569 P3 S1				; Drive 3 goes forwards
+M569 P4 S1				; Drive 4 goes forwards
 M574 X2 Y2 Z2 S1			; set endstop configuration (all endstops at high end, active high)
 ;*** The homed height (H270) is deliberately set too high in the following line.
 ;*** You will adjust it during calibration (higher number is closer to the bed).
@@ -68,10 +61,8 @@ M208 S1 Z-0.2				; set minimum Z
 ;
 T0					; select first hot end
 
-; Compensate for delta inaccuracies
-; Uncomment the following line and adjust the X and Y values to grow/shrink in the X/Y axes
-;M579 X1.005 Y1.005 ; compensate for delta geometry, grow ~0.5% in X and Y
+M98 Plocal.g ; Load local settings
 
-; Uncomment to load values from config-overrides.g at boot
-;M501
+; load values from config-overrides.g at boot
+M501
 

@@ -61,7 +61,7 @@ M208 S1 Z-0.2				; set minimum Z
 ;
 T0					; select first hot end
 
-M98 Plocal.g
+M98 Plocal.g ; Load local settings
 
 ; load values from config-overrides.g at boot
 M501

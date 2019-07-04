@@ -1,1 +1,1 @@
-; Put your machine-specific probe deployment code here
+; Put your machine-specific probe deployment procedure here

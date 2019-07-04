@@ -1,6 +1,4 @@
 ; Auto calibration routine for delta printers.
-; Before running this, you should have set up your zprobe Z offset to suit your
-; build, in the G31 command in config.g.
 
 M561            ; clear any bed transform, otherwise homing may be at the wrong height
 G31 X0 Y0       ; don't want any probe offset for this

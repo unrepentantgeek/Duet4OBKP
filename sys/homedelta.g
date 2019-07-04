@@ -1,7 +1,5 @@
 ; Homing file for RepRapFirmware on Mini Kossel
 G91							; use relative positioning
-;******* Change F250 in the following line to F2500 when you are finished commissioning
-;******* Change 320 in the following to a higher value if your Kossel has taller towers
 G1 S1 X400 Y400 Z400 F2500	; move all carriages up 400mm, stopping at the endstops
 G1 S2 X-3 Y-3 Z-3			; move all carriages down 3mm
 G1 S1 X6 Y6 Z6 F250			; move carriages slowly up 6mm, stopping at the endstops

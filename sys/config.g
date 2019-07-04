@@ -36,7 +36,6 @@ M566 X600 Y600 Z600 E150		; Maximum instant speed changes mm/minute
 M305 P0 T100000 B3950 R4700 H30 L0	; Put your own H and/or L values here to set the bed thermistor ADC correction
 M305 P1 T100000 B4725 R4700 C7.06e-8 H30 L0	; Put your own H and/or L values here to set the first nozzle thermistor ADC correction
 M305 P2 T100000 B3974 R4700 H30 L0	; Put your own H and/or L values here to set the second nozzle thermistor ADC correction
-;M570 S180				; Hot end may be a little slow to heat up so allow it 180 seconds
 
 ; Fans
 M106 P1 T40:50 H1:2 				; enable thermostatic mode for fan 1

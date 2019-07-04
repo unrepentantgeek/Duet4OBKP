@@ -6,8 +6,7 @@ M561            ; clear any bed transform, otherwise homing may be at the wrong 
 G31 X0 Y0       ; don't want any probe offset for this
 G28             ; home the printer, just in case the user didn't
 
-;*** Uncomment the following line if your Z probe needs to be deployed
-; M98 Pdeployprobe.g  ; deploy the mechanical Z probe
+M98 Pdeployprobe.g  ; deploy probe if configured
 
 ; dummy probe because the first probe is usually inaccurate
 G30 P0  X0.00   Y0.00   Z-99999 H0
@@ -33,5 +32,4 @@ G30 P15 X0      Y0      Z-99999 S6
 
 G1 X0 Y0 Z150 F15000    ; get the head out of the way of the bed
 
-;*** Uncomment the following line if your Z probe needs to be retracted
-; M98 Pretractprobe.g  ; retract the mechanical Z probe
+M98 Pretractprobe.g  ; retract probe if configured

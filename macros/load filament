@@ -1,0 +1,4 @@
+M302 P1 ; allow cold extrusion
+G0 E10 F150
+G0 E640 F3000
+M302 P0 ; prevent cold extrusion

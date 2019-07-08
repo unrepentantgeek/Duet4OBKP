@@ -38,6 +38,10 @@ M566 X600 Y600 Z600 E150          ; Maximum instant speed changes mm/minute
 M305 P0 T100000 B3950 R4700 H30 L0            ; set the bed thermistor ADC correction
 M305 P1 T100000 B4725 R4700 C7.06e-8 H30 L0   ; set the first nozzle thermistor ADC correction
 
+; Heaters
+M307 H0 A90.0 C700.0 D10.0 S1.00 V0.0 B1      ; set bed PID parameters
+M307 H1 A416.8 C269.4 D3.8 S0.70 V24.4 B0     ; set first nozzle PID parameters
+
 ; Fans
 M106 P1 T40:50 H1:2       ; enable thermostatic mode for fan 1
 
